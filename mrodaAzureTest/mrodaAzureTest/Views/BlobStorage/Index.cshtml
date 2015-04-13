@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "blob storage";
+}
+
+<h3>blob storage</h3>
+<p>Upload and delete items from azure blob storage </p>
+
+<h2>List of items in azure blob storage</h2>
+
+@model IEnumerable<Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob>
+
+<table class="table">
+    <tr>
+        <th>
+            file name
+        </th>
+        <th>
+            uri
+        </th>
+        <th>
+            type
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="@item.Uri">@item.Uri</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GetType().Name)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { fileName = item.Name })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h2>Upload file</h2>
+
+@using (Html.BeginForm("ImageUpload", "BlobStorage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>Please select a file to upload</div>
+    <input name="file" type="file" style="float:left">
+    <input type="submit" value="Upload" style="float:left; margin-left:20px;" />
+}

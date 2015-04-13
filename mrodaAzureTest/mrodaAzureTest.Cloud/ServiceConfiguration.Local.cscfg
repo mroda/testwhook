@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="mrodaAzureTest.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="mrodaAzureTest">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="DevStorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mroda;AccountKey=BaHE+pDKHDKVvcaTZg+sPVC/PfDRzBb6y/SUueg8PSGVQ+QKfZJcow43cCl4ET3EQmk1yo0Xv/cK5/y6uvQeQg==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
